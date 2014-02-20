@@ -9,10 +9,13 @@
   "scripts": {
     "test": "make sauce"
   },
+  "testling": {
+    "scripts": ["build/build.js", "test/*.js"],
+    "harness": "mocha",
+    "preprocess": "make build"
+  },
   "dependencies": {},
   "devDependencies": {
-    "phantomjs": "*",
-    "component": "*",
-    "component-test": "*"
+    "component": "*"
   }
 }
