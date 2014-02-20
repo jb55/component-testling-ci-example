@@ -12,10 +12,15 @@
   "testling": {
     "scripts": ["build/build.js", "test/*.js"],
     "harness": "mocha",
+    "browsers": [
+      "ie6", "ie7", "ie8", "ie9",
+      "firefox/15", "chrome/22", "opera/12", "safari/5.1"
+    ],
     "preprocess": "make build"
   },
   "dependencies": {},
   "devDependencies": {
+    "mocha": "*",
     "component": "*"
   }
 }
