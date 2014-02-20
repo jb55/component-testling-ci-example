@@ -1,5 +1,5 @@
 
-var parents = require('parents');
+var parents = require('component-testling-ci-example');
 var assert = require('assert');
 
 describe('parents', function(){

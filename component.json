@@ -1,9 +1,9 @@
 {
-  "name": "parents",
-  "repo": "jb55/parents",
-  "description": "Return all parents of an element",
+  "name": "component-testling-ci-example",
+  "repo": "jb55/component-testling-ci-example",
+  "description": "testling ci + component example",
   "version": "0.0.1",
-  "keywords": ["parent", "parents"],
+  "keywords": ["example", "testling"],
   "dependencies": {
     "yields/traverse": "*"
   },

@@ -1,13 +1,9 @@
 {
-  "name": "parents",
-  "description": "",
-  "version": "0.0.0",
-  "repository": {
-    "url": "git://github.com/jb55/parents.git"
-  },
-  "main": "index.js",
-  "scripts": {
-    "test": "make sauce"
+  "name": "component-testling-ci-example",
+  "description": "component testling ci example",
+  "devDependencies": {
+    "mocha": "*",
+    "component": "*"
   },
   "testling": {
     "harness": "mocha",
@@ -17,10 +13,5 @@
     ],
     "preprocess": "make build",
     "scripts": ["build/*.js", "test/*.js"]
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "mocha": "*",
-    "component": "*"
   }
 }
