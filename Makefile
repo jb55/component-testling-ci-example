@@ -11,7 +11,4 @@ clean:
 test: build
 	@component-test phantom
 
-sauce: build
-	@component-test sauce
-
-.PHONY: clean test sauce
+.PHONY: clean test
