@@ -1,4 +1,3 @@
-export PATH := ./node_modules/component/bin:$(PATH)
 
 build: components index.js
 	@component build --dev
