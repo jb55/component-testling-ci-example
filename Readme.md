@@ -1,6 +1,8 @@
 
 # component-testling-ci-example
 
+[![browser support](https://ci.testling.com/jb55/component-testling-ci-example.png)](https://ci.testling.com/jb55/component-testling-ci-example)
+
 ## Step 1
 
 Make a package.json like so:
