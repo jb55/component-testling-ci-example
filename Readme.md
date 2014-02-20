@@ -1,47 +1,54 @@
 
-# parents
+# component-testling-ci-example
 
-  Return all parents of an element
+## Step 1
 
-  [![browser support](https://ci.testling.com/jb55/parents.png)](https://ci.testling.com/jb55/parents)
+Make a package.json like so:
 
-## Installation
-
-  Install with [component(1)](http://component.io):
-
-    $ component install jb55/parents
-
-## Example
-
-```js
-var parents = require('parents')
-var els = parents(document.querySelector('.hi'))
-
-els.forEach(function(el){
-  // ..
-});
+```json
+{
+  "name": "component-testling-ci-example",
+  "description": "component testling ci example",
+  "devDependencies": {
+    "mocha": "*",
+    "component": "*"
+  },
+  "testling": {
+    "harness": "mocha",
+    "browsers": [
+      "ie6", "ie7", "ie8", "ie9",
+      "firefox/15", "chrome/22", "opera/12", "safari/5.1"
+    ],
+    "preprocess": "make build",
+    "scripts": ["build/*.js", "test/*.js"]
+  }
+}
 ```
 
-## License
+You don't have to use mocha but it seems the most common harness.
 
-  The MIT License (MIT)
+## Step 2
 
-  Copyright (c) 2014 William Casarin
+Add `http://git.testling.com` to your projects' webhooks (`Settings` -> `Webhooks and Services`)
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to deal
-  in the Software without restriction, including without limitation the rights
-  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
+## Step 3
 
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
+Add a badge to your Readme.md:
 
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-  THE SOFTWARE.
+```
+[![browser support](https://ci.testling.com/<username>/<project>.png)](https://ci.testling.com/<username>/<project>)
+```
+
+## Step 4
+
+Type `make build` and commit your `build/build.js`
+
+*Step 4 is temporary step until substack supports scripts built from preprocess*
+
+## Step 5
+
+Push to Github, check out your test run at:
+
+`https://ci.testling.com/<username>/<project>`
+
+
