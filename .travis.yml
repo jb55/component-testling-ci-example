@@ -3,7 +3,7 @@ node_js:
   - '0.10'
 env:
   global:
-    - secure: Kzc31RjrsUcSlUVO/HyDFeEZXoTIGH27d77psa9icJLxwm9jM7hsbsxo6Epv7PFHby8/OYzTrjkHOvtR2w8Tj0bdNkn6n/jWNJYZt/xJacBt02GAZTt5r9f8NbWJjJB2oYPK2aEqgI975wOOGu3YY4jikbabL3eXIxBgl/q7H5E=
+    - secure: "EMWLc4NCrfznO/lkQkIrw1XdD+vxBDK7OCn29Bx9bLS20IdEc/dLprwrwWVB1DkUhgVFNQSMLeZWhW2J2eA7GTrl3ycuTbvAiQXk9pG3i5yU8vAedimi7MP903CjBZ0utmNMfScDc9/xOho+R7Z2S8s9Jd8Tz89zRanfQfQwm8M="
     - DEBUG=component-test*
     - PATH=$PATH:./node_modules/component/bin:./node_modules/component-test/bin
   matrix:
