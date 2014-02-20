@@ -1,4 +1,11 @@
 
+
+/**
+ * hasOwnProperty.
+ */
+
+var has = Object.prototype.hasOwnProperty;
+
 /**
  * Require the given path.
  *
@@ -26,14 +33,10 @@ function require(path, parent, orig) {
   // perform real require()
   // by invoking the module's
   // registered function
-  if (!module._resolving && !module.exports) {
-    var mod = {};
-    mod.exports = {};
-    mod.client = mod.component = true;
-    module._resolving = true;
-    module.call(this, mod.exports, require.relative(resolved), mod);
-    delete module._resolving;
-    module.exports = mod.exports;
+  if (!module.exports) {
+    module.exports = {};
+    module.client = module.component = true;
+    module.call(this, module.exports, require.relative(resolved), module);
   }
 
   return module.exports;
@@ -67,6 +70,7 @@ require.aliases = {};
 
 require.resolve = function(path) {
   if (path.charAt(0) === '/') path = path.slice(1);
+  var index = path + '/index.js';
 
   var paths = [
     path,
@@ -78,8 +82,11 @@ require.resolve = function(path) {
 
   for (var i = 0; i < paths.length; i++) {
     var path = paths[i];
-    if (require.modules.hasOwnProperty(path)) return path;
-    if (require.aliases.hasOwnProperty(path)) return require.aliases[path];
+    if (has.call(require.modules, path)) return path;
+  }
+
+  if (has.call(require.aliases, index)) {
+    return require.aliases[index];
   }
 };
 
@@ -132,7 +139,7 @@ require.register = function(path, definition) {
  */
 
 require.alias = function(from, to) {
-  if (!require.modules.hasOwnProperty(from)) {
+  if (!has.call(require.modules, from)) {
     throw new Error('Failed to alias "' + from + '", it does not exist');
   }
   require.aliases[to] = from;
@@ -194,7 +201,7 @@ require.relative = function(parent) {
    */
 
   localRequire.exists = function(path) {
-    return require.modules.hasOwnProperty(localRequire.resolve(path));
+    return has.call(require.modules, localRequire.resolve(path));
   };
 
   return localRequire;
@@ -710,33 +717,27 @@ function getScript(script) {\n\
 }\n\
 //@ sourceURL=component-assert/index.js"
 ));
-require.register("parents/index.js", Function("exports, require, module",
+require.register("component-testling-ci-example/index.js", Function("exports, require, module",
 "\n\
 var traverse = require('traverse');\n\
 \n\
 module.exports = function(el) {\n\
   return traverse('parentNode', el, null, Infinity);\n\
 };\n\
-//@ sourceURL=parents/index.js"
+//@ sourceURL=component-testling-ci-example/index.js"
 ));
-
-
-
-
-
-
-require.alias("yields-traverse/index.js", "parents/deps/traverse/index.js");
-require.alias("yields-traverse/index.js", "parents/deps/traverse/index.js");
+require.alias("yields-traverse/index.js", "component-testling-ci-example/deps/traverse/index.js");
+require.alias("yields-traverse/index.js", "component-testling-ci-example/deps/traverse/index.js");
 require.alias("yields-traverse/index.js", "traverse/index.js");
 require.alias("component-matches-selector/index.js", "yields-traverse/deps/matches-selector/index.js");
 require.alias("component-query/index.js", "component-matches-selector/deps/query/index.js");
 
 require.alias("yields-traverse/index.js", "yields-traverse/index.js");
-require.alias("component-assert/index.js", "parents/deps/assert/index.js");
+require.alias("component-assert/index.js", "component-testling-ci-example/deps/assert/index.js");
 require.alias("component-assert/index.js", "assert/index.js");
 require.alias("component-stack/index.js", "component-assert/deps/stack/index.js");
 
 require.alias("jkroso-equals/index.js", "component-assert/deps/equals/index.js");
 require.alias("jkroso-type/index.js", "jkroso-equals/deps/type/index.js");
 
-require.alias("parents/index.js", "parents/index.js");
+require.alias("component-testling-ci-example/index.js", "component-testling-ci-example/index.js");
