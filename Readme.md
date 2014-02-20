@@ -1,7 +1,9 @@
 
-# parents [![Build Status](https://secure.travis-ci.org/jb55/parents.png?branch=master)](https://travis-ci.org/jb55/parents)
+# parents
 
   Return all parents of an element
+
+  [![browser support](https://ci.testling.com/jb55/parents.png)](https://ci.testling.com/jb55/parents)
 
 ## Installation
 
