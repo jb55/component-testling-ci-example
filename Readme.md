@@ -18,8 +18,14 @@ Make a package.json like so:
   "testling": {
     "harness": "mocha",
     "browsers": [
-      "ie6", "ie7", "ie8", "ie9",
-      "firefox/15", "chrome/22", "opera/12", "safari/5.1"
+      "ie/6..latest",
+      "chrome/22..latest",
+      "firefox/16..latest",
+      "safari/latest",
+      "opera/11.0..latest",
+      "iphone/6",
+      "ipad/6",
+      "android-browser/latest"
     ],
     "preprocess": "make build",
     "scripts": ["build/*.js", "test/*.js"]
